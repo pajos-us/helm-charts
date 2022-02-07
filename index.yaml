@@ -1,0 +1,13 @@
+apiVersion: v1
+entries:
+  libchart:
+  - apiVersion: v2
+    created: "2022-02-07T18:01:52.825188296Z"
+    description: A Helm chart for Kubernetes
+    digest: 86f89e863534f88fdb99d48d949db432834d58bc80073d17115ff440656679ad
+    name: libchart
+    type: library
+    urls:
+    - https://github.com/pajos-us/helm-charts/releases/download/libchart-0.1.0/libchart-0.1.0.tgz
+    version: 0.1.0
+generated: "2022-02-07T18:01:52.685699413Z"
