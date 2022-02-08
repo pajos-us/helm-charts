@@ -1,0 +1,27 @@
+{{- define "libchart.ingressroute" }}
+{{- range .Values.ingressroutes }}
+{{- with . }}
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: {{ $.Chart.Name }}-{{ .name }}
+spec:
+  entryPoints:
+  - websecure
+  routes:
+  - match: {{ .rule }}
+    kind: Rule
+    services:
+    - name: {{ $.Chart.Name }}-{{ .service.name }}
+      port: {{ .service.port }}
+    {{- if .middlewares }}
+    middlewares:
+    {{- range $key := .middlewares }}
+    - name: {{ $.Chart.Name }}-{{ $key }}
+    {{- end }}
+    {{- end }}
+  tls: {}
+{{- end }}
+---
+{{- end -}}
+{{ end -}}

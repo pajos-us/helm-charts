@@ -1,0 +1,16 @@
+{{- define "libchart.middleware" }}
+{{- range .Values.middlewares }}
+{{- with . }}
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: {{ $.Chart.Name }}-{{ .name }}
+spec:
+  {{ .type }}:
+  {{- range $key, $value := .spec }}
+    {{ $key }}: {{ $value }}
+  {{- end }}
+{{- end }}
+---
+{{- end -}}
+{{ end -}}

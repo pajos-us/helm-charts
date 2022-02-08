@@ -1,33 +1,88 @@
-{{- define "libchart.deployment" -}}
----
+{{- define "libchart.deployment" }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Release.Name }}
+  name: {{ .Chart.Name }}
   labels:
-{{ include "libchart.labels" . | indent 4 }}
+    app: {{ .Chart.Name }}
 spec:
-  replicas: 1
+  replicas: {{ default 1 .Values.replicas }}
   selector:
     matchLabels:
-{{ include "libchart.labels" . | indent 6 }}
+      app: {{ .Chart.Name }}
   template:
     metadata:
       labels:
-{{ include "libchart.labels" . | indent 8 }}
+        app: {{ .Chart.Name }}
     spec:
-      {{- if .hostnetwork }}
-      hostNetwork: {{ .hostnetwork }}
+      {{- if .Values.hostnetwork }}
+      hostNetwork: {{ .Values.hostnetwork }}
       {{- end }}
-      serviceAccountName: {{ .Release.Name }}
+      serviceAccountName: {{ .Chart.Name }}
+      {{- if .Values.securityContext }}
+      securityContext:
+{{ toYaml .Values.securityContext | indent 8 }}
+      {{- end }}
       containers:
-{{- include "libchart.containers" . | indent 6 }}
-      {{- if .volumes }}
-      volumes:
-{{ toYaml .volumes | indent 8 }}
+      {{- range .Values.containers }}
+        {{- with . }}
+        - name: {{ .name }}
+          image: {{ .image.name }}:{{ .image.tag }}
+          imagePullPolicy: {{ default "IfNotPresent" .image.pullPolicy }}
+          {{- if .args }}
+          args:
+          {{- range $key := .args }}
+          - {{ $key }}
+          {{- end }}
+          {{- end }}
+          {{- if .port }}
+          ports:
+          - name: {{ .port.name }}
+            containerPort: {{ .port.num }}
+            protocol: {{ .port.type }}
+          {{- end }}
+          {{- if or .configmapref .secretref }}
+          envFrom:
+          {{- if .configmapref }}
+          - configMapRef:
+              name: {{ $.Chart.Name }}-{{ .name }}
+          {{- end }}
+          {{- if .secretref }}
+          - secretRef:
+              name: {{ $.Chart.Name }}-{{ .name }}
+          {{- end }}
+          {{- end }}
+          {{- if .volumeMounts }}
+          volumeMounts:
+          {{- range .volumeMounts }}
+            {{- with .}}
+            - name: {{ .name }}
+              mountPath: {{ .mountPath }}
+            {{- end }}
+          {{- end -}}
+          {{- end }}
+          {{- if .readinessProbe }}
+          readinessProbe:
+{{ toYaml .readinessProbe | indent 12 }}
+          {{- end }}
+          {{- if .livenessProbe }}
+          livenessProbe:
+{{ toYaml .livenessProbe | indent 12 }}
+          {{- end }}
+          {{- if .startupProbe }}
+          startupProbe:
+{{ toYaml .startupProbe | indent 12 }}
+          {{- end }}
+        {{- end }}
       {{- end }}
----
-{{ include "libchart.service" . | trim }}
----
-{{ include "libchart.pdb" . | trim }}
+      {{- if .Values.volumes }}
+      volumes:
+      {{- range .Values.volumes }}
+        {{- with . }}
+        - name: {{ .name }}
+          hostPath:
+            path: {{ .hostpath }}
+        {{- end }}
+      {{- end -}}
+      {{- end }}
 {{ end -}}
