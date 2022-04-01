@@ -73,9 +73,9 @@ spec:
             {{- end }}
           {{- end }}
           {{- end }}
-          {{- if .Values.tolerations }}
+          {{- if .tolerations }}
           tolerations:
-          {{- range .Values.tolerations }}
+          {{- range .tolerations }}
             {{- with . }}
             - key: {{ .key }}
               operator: {{ .operator }}
