@@ -52,6 +52,10 @@ spec:
               name: {{ $.Chart.Name }}-{{ .name }}
           {{- end }}
           {{- end }}
+          {{- if .startupProbe }}
+          securityContext:
+{{ toYaml .securitycontext | indent 12 }}
+          {{- end }}
           {{- if .volumeMounts }}
           volumeMounts:
           {{- range .volumeMounts }}
