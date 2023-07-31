@@ -43,4 +43,16 @@ entries:
     urls:
     - https://github.com/pajos-us/helm-charts/releases/download/libchart-0.1.0/libchart-0.1.0.tgz
     version: 0.1.0
+  traefik:
+  - apiVersion: v2
+    created: "2023-07-31T23:51:11.688976409Z"
+    dependencies:
+    - name: traefik
+      repository: https://helm.traefik.io/traefik
+      version: v20.8.0
+    digest: 6f087422d775da11d5ae250ed138cfafd30ebbe000de46b57cffd8cd3dc66b82
+    name: traefik
+    urls:
+    - https://github.com/pajos-us/helm-charts/releases/download/traefik-1.0.0/traefik-1.0.0.tgz
+    version: 1.0.0
 generated: "2022-02-07T18:01:52.685699413Z"
