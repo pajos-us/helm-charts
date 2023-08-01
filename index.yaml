@@ -8,6 +8,14 @@ entries:
     urls:
     - https://github.com/pajos-us/helm-charts/releases/download/dynu-webhook-1.0.0/dynu-webhook-1.0.0.tgz
     version: 1.0.0
+  dynuwebhook:
+  - apiVersion: v2
+    created: "2023-08-01T18:51:48.242892624Z"
+    digest: cdb19116af980352804de7352a7703ab7efe39a64ce126f928d411afc9ca5d23
+    name: dynuwebhook
+    urls:
+    - https://github.com/pajos-us/helm-charts/releases/download/dynuwebhook-1.0.0/dynuwebhook-1.0.0.tgz
+    version: 1.0.0
   grafana-agent:
   - apiVersion: v2
     created: "2023-08-01T16:09:05.529149682Z"
