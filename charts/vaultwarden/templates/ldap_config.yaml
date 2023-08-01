@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-ldap-config
+data:
+  config.toml: |
+{{ .Values.ldap.config | toYaml | indent 4 }}
