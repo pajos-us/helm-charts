@@ -2,6 +2,20 @@ apiVersion: v1
 entries:
   grafana-agent:
   - apiVersion: v2
+    created: "2023-08-01T16:09:05.529149682Z"
+    dependencies:
+    - name: kube-state-metrics
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 5.8.1
+    - name: prometheus-node-exporter
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 4.18.1
+    digest: e69a13d48826122724be41a741181624ab7b0ebc9f2eb838c3c91840648fc45e
+    name: grafana-agent
+    urls:
+    - https://github.com/pajos-us/helm-charts/releases/download/grafana-agent-1.0.2/grafana-agent-1.0.2.tgz
+    version: 1.0.2
+  - apiVersion: v2
     created: "2023-08-01T05:07:44.28924515Z"
     dependencies:
     - name: kube-state-metrics
