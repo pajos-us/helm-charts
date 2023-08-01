@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: wildcard-cert  # Replace with a name of your choice
+spec:
+  commonName: "*.{{ .Values.domain }}" # Wildcard Entry for your domain
+  dnsNames:
+    - {{ .Values.domain }}         # List of all (sub)domains that you want to include in the cert
+    - "*.{{ .Values.domain }}"
+  issuerRef:
+    name: letsencrypt-dynu   # This should match the issuer you defined earlier
+    kind: ClusterIssuer
+    group: cert-manager.io
+  secretName: wildcard-cert # Secret name where the resulting certificate is saved in

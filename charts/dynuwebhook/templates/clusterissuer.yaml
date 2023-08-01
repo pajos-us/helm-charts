@@ -1,0 +1,20 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+    name: letsencrypt-dynu
+spec:
+    acme:
+      email: su.homeserver@gmail.com
+      server: https://acme-v02.api.letsencrypt.org/directory
+      privateKeySecretRef:
+        name: acme-secret
+      solvers:
+      - dns01:
+          cnameStrategy: Follow
+          webhook:
+            groupName: {{ .Values.groupName }} # Use the groupName defined above
+            solverName: dynu
+            config:
+              secretName: dynu-secret # Adjust this in case you changed the secretName
+              zoneName: {{ .Values.domain }} # Add the domain which you want to create certiciates for
+              apiUrl: https://api.dynu.com/v2
