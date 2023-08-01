@@ -4,4 +4,4 @@ metadata:
   name: {{ .Release.Name }}-ldap-config
 data:
   config.toml: |
-{{ .Values.ldap.config | toYaml | indent 4 }}
+{{ .Values.ldap.config | indent 4 }}
