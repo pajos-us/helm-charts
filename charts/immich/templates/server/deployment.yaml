@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: immich-server
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: immich-server
+      app.kubernetes.io/instance: immich
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: immich-server
+        app.kubernetes.io/instance: immich
+    spec:
+      containers:
+        - name: immich-immich-server
+          image: "altran1502/immich-server:{{ .Values.image.tag }}"
+          imagePullPolicy: IfNotPresent
+          command:
+            - /bin/sh
+          args:
+            - ./start-server.sh
+          envFrom:
+            - configMapRef:
+                name: immich
+          ports:
+            - name: http
+              containerPort: 3001
+              protocol: TCP
+          volumeMounts:
+            - name: library
+              mountPath: /usr/src/app/upload
+          livenessProbe:
+            failureThreshold: 5
+            httpGet:
+              path: '/server-info/ping'
+              port: http
+            periodSeconds: 10
+            timeoutSeconds: 5
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: '/server-info/ping'
+              port: http
+            periodSeconds: 10
+            timeoutSeconds: 5
+          startupProbe:
+            failureThreshold: 12
+            httpGet:
+              path: '/server-info/ping'
+              port: http
+            periodSeconds: 10
+            timeoutSeconds: 5
+      volumes:
+        - name: library
+          persistentVolumeClaim:
+            claimName: immich-library

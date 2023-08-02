@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: immich
+data:
+  DB_DATABASE_NAME: "{{ .Values.db.name }}"
+  DB_HOSTNAME: "{{ .Values.db.host }}"
+  DB_PASSWORD: "{{ .Values.db.password }}"
+  DB_USERNAME: "{{ .Values.db.username }}"
+  JWT_SECRET: "{{ .Values.jwt }}"
+  REDIS_HOSTNAME: "{{ .Values.redis.host }}"
+  REDIS_DBINDEX: "{{ .Values.redis.dbindex }}"
+  ENABLE_MAPBOX: "false"
+  NODE_ENV: "production"
+  DISABLE_REVERSE_GEOCODING: "true"
+  IMMICH_MACHINE_LEARNING_URL: "http://immich-machine-learning:3003"
+  TYPESENSE_ENABLED: "true"
+  TYPESENSE_API_KEY: "{{ .Values.typesense.api_key }}"
