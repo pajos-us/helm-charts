@@ -87,6 +87,18 @@ entries:
     urls:
     - https://github.com/pajos-us/helm-charts/releases/download/libchart-0.1.0/libchart-0.1.0.tgz
     version: 0.1.0
+  lldap:
+  - apiVersion: v2
+    created: "2023-08-02T03:02:01.69215155Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: 4.5.2
+    digest: 1661361b1c3fe356263181c2e483a0bf4cf4f75958ff3438fbd0f928dc8ca4d3
+    name: lldap
+    urls:
+    - https://github.com/pajos-us/helm-charts/releases/download/lldap-1.0.0/lldap-1.0.0.tgz
+    version: 1.0.0
   metallb:
   - apiVersion: v2
     created: "2023-08-01T05:20:37.010504507Z"
