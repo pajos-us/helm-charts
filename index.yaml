@@ -135,6 +135,18 @@ entries:
     urls:
     - https://github.com/pajos-us/helm-charts/releases/download/nodered-1.0.0/nodered-1.0.0.tgz
     version: 1.0.0
+  pgadmin:
+  - apiVersion: v2
+    created: "2023-08-02T20:12:51.043217898Z"
+    dependencies:
+    - name: pgadmin4
+      repository: https://helm.runix.net
+      version: 1.12.0
+    digest: fcf1c2c0f0d14580ccf77b9e7fd049ccf1646b5f53ae87905585fc4586297222
+    name: pgadmin
+    urls:
+    - https://github.com/pajos-us/helm-charts/releases/download/pgadmin-1.0.0/pgadmin-1.0.0.tgz
+    version: 1.0.0
   sealed-secrets:
   - apiVersion: v2
     created: "2023-08-02T02:52:23.062325259Z"
