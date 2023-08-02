@@ -111,6 +111,18 @@ entries:
     urls:
     - https://github.com/pajos-us/helm-charts/releases/download/metallb-1.0.0/metallb-1.0.0.tgz
     version: 1.0.0
+  nodered:
+  - apiVersion: v2
+    created: "2023-08-02T18:09:24.60322053Z"
+    dependencies:
+    - name: node-red
+      repository: https://k8s-at-home.com/charts/
+      version: 10.3.2
+    digest: 84f3bbf8f969cf7d8cd16db97be09a25f598540d7465f287d281daed6d3104d8
+    name: nodered
+    urls:
+    - https://github.com/pajos-us/helm-charts/releases/download/nodered-1.0.0/nodered-1.0.0.tgz
+    version: 1.0.0
   sealed-secrets:
   - apiVersion: v2
     created: "2023-08-02T02:52:23.062325259Z"
