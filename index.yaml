@@ -99,6 +99,18 @@ entries:
     urls:
     - https://github.com/pajos-us/helm-charts/releases/download/metallb-1.0.0/metallb-1.0.0.tgz
     version: 1.0.0
+  sealed-secrets:
+  - apiVersion: v2
+    created: "2023-08-02T02:52:23.062325259Z"
+    dependencies:
+    - name: sealed-secrets
+      repository: https://bitnami-labs.github.io/sealed-secrets
+      version: 2.8.1
+    digest: dac2f394926c18293a1fcf4d4051a159d854c16aa31568c35aa1df5971783c87
+    name: sealed-secrets
+    urls:
+    - https://github.com/pajos-us/helm-charts/releases/download/sealed-secrets-1.0.0/sealed-secrets-1.0.0.tgz
+    version: 1.0.0
   traefik:
   - apiVersion: v2
     created: "2023-07-31T23:51:11.688976409Z"
