@@ -16,6 +16,14 @@ entries:
     urls:
     - https://github.com/pajos-us/helm-charts/releases/download/dynuwebhook-1.0.0/dynuwebhook-1.0.0.tgz
     version: 1.0.0
+  external-services:
+  - apiVersion: v2
+    created: "2023-08-02T21:26:44.511626276Z"
+    digest: 2d027f5543b229a6e00332a83088d4a432ecfa3e8fc20b187ec7813a6b1ba25a
+    name: external-services
+    urls:
+    - https://github.com/pajos-us/helm-charts/releases/download/external-services-1.0.0/external-services-1.0.0.tgz
+    version: 1.0.0
   grafana-agent:
   - apiVersion: v2
     created: "2023-08-01T16:09:05.529149682Z"
