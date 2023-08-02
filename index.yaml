@@ -59,6 +59,15 @@ entries:
     urls:
     - https://github.com/pajos-us/helm-charts/releases/download/grafana-agent-1.0.0/grafana-agent-1.0.0.tgz
     version: 1.0.0
+  immich:
+  - apiVersion: v2
+    created: "2023-08-02T21:16:48.490742609Z"
+    description: A chart to power Immich (immich.app) running on kubernetes
+    digest: 1206d9836fd85bebe1d942c159b68350441a6eabc7d5d8b9cdea403606e474c5
+    name: immich
+    urls:
+    - https://github.com/pajos-us/helm-charts/releases/download/immich-1.0.0/immich-1.0.0.tgz
+    version: 1.0.0
   kyverno:
   - apiVersion: v2
     created: "2023-08-02T18:27:33.027901957Z"
