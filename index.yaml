@@ -1,5 +1,17 @@
 apiVersion: v1
 entries:
+  ddclient:
+  - apiVersion: v2
+    created: "2023-08-02T21:39:22.303161135Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: 4.5.2
+    digest: 535ca13d63a3677195dd0968c81972c0a3dc8e1e23634a2e24dea79adbbb8ba6
+    name: ddclient
+    urls:
+    - https://github.com/pajos-us/helm-charts/releases/download/ddclient-1.0.0/ddclient-1.0.0.tgz
+    version: 1.0.0
   dynu-webhook:
   - apiVersion: v2
     created: "2023-08-01T18:45:47.299300989Z"
