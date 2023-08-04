@@ -24,4 +24,5 @@ spec:
       patchStrategicMerge:
         metadata:
           annotations:
-          vault.security.banzaicloud.io/vault-role: '"{{ printf "%s%s%s" "{{" "request.object.metadata.namespace" "}}" }}"'
+            vault.security.banzaicloud.io/vault-role: >-
+              {{ printf "{{ request.object.metadata.namespace }}" }}
