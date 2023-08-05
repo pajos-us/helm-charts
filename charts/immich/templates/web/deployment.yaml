@@ -23,6 +23,8 @@ spec:
           envFrom:
             - secretRef:
                 name: immich
+            - configMapRef:
+                name: immich
           livenessProbe:
             failureThreshold: 5
             httpGet:

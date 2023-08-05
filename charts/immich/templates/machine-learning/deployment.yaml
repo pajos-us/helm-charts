@@ -23,6 +23,8 @@ spec:
           envFrom:
             - secretRef:
                 name: immich
+            - configMapRef:
+                name: immich
           ports:
             - name: http
               containerPort: 3003
