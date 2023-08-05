@@ -25,7 +25,7 @@ spec:
           args:       
             - ./start-microservices.sh
           envFrom:
-            - configMapRef:
+            - secretRef:
                 name: immich
           ports:
             - name: http

@@ -21,7 +21,7 @@ spec:
           image: "altran1502/immich-web:{{ .Values.image.tag }}"
           imagePullPolicy: IfNotPresent
           envFrom:
-            - configMapRef:
+            - secretRef:
                 name: immich
           livenessProbe:
             failureThreshold: 5

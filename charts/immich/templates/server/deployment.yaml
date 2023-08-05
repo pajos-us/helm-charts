@@ -25,7 +25,7 @@ spec:
           args:
             - ./start-server.sh
           envFrom:
-            - configMapRef:
+            - secretRef:
                 name: immich
           ports:
             - name: http
