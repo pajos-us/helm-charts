@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-ldap-config
+data:
+  APP_VAULTWARDEN_URL: "{{ .Values.ldap.vaultwarden.url }}"
+  APP_LDAP_HOST: "{{ .Values.ldap.host }}"
+  APP_LDAP_BIND_DN: "{{ .Values.ldap.bind_dn }}"
+  APP_LDAP_SEARCH_BASE_DN: "{{ .Values.ldap.search_base_dn }}"
+  APP_LDAP_SEARCH_FILTER: "{{ .Values.ldap.search_filter }}"
+  APP_LDAP_SYNC_INTERVAL_SECONDS: {{ .Values.ldap.sync_interval_seconds }}

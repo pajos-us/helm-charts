@@ -21,17 +21,10 @@ spec:
       containers:
       - image: vividboarder/vaultwarden_ldap:0.6.2
         name: vaultwarden-ldap
-        volumeMounts:
-        - mountPath: /config.toml
-          name: config
-          subPath: config.toml
-        env:
-        - name: CONFIG_PATH
-          value: /config.toml
-      volumes:
-      - secret:
-          defaultMode: 420
-          secretName: {{ .Release.Name }}-ldap-config
-        name: config
+        envFrom:
+        - secretRef:
+            name: {{ .Release.Name }}-ldap-config
+        - configMapRef:
+            name: {{ .Release.Name }}-ldap-config
 
         
