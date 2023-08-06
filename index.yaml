@@ -233,6 +233,17 @@ entries:
     version: 1.0.0
   vaultwarden:
   - apiVersion: v2
+    created: "2023-08-06T17:33:45.726557851Z"
+    dependencies:
+    - name: vaultwarden
+      repository: https://k8s-at-home.com/charts/
+      version: 5.3.2
+    digest: 34be0ff79fc259805eb316059c22216c3a23dcee24700a444c6905dcfdbe26e9
+    name: vaultwarden
+    urls:
+    - https://github.com/pajos-us/helm-charts/releases/download/vaultwarden-1.0.3/vaultwarden-1.0.3.tgz
+    version: 1.0.3
+  - apiVersion: v2
     created: "2023-08-06T02:33:14.568065471Z"
     dependencies:
     - name: vaultwarden
