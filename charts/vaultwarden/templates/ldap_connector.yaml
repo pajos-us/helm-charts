@@ -29,9 +29,9 @@ spec:
         - name: CONFIG_PATH
           value: /config.toml
       volumes:
-      - configMap:
+      - secret:
           defaultMode: 420
-          name: {{ .Release.Name }}-ldap-config
+          secretName: {{ .Release.Name }}-ldap-config
         name: config
 
         
