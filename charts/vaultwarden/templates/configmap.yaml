@@ -8,4 +8,4 @@ data:
   APP_LDAP_BIND_DN: "{{ .Values.ldap.bind_dn }}"
   APP_LDAP_SEARCH_BASE_DN: "{{ .Values.ldap.search_base_dn }}"
   APP_LDAP_SEARCH_FILTER: "{{ .Values.ldap.search_filter }}"
-  APP_LDAP_SYNC_INTERVAL_SECONDS: {{ .Values.ldap.sync_interval_seconds }}
+  APP_LDAP_SYNC_INTERVAL_SECONDS: "{{ .Values.ldap.sync_interval_seconds }}"
