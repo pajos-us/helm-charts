@@ -1,0 +1,25 @@
+{{- range .Values.services }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .name }}
+{{- if or .serverstransport .service.additionalAnnotations }}
+  annotations:
+{{- if .serverstransport }}
+    traefik.ingress.kubernetes.io/service.serverstransport: {{ $.Release.Namespace }}-{{ .name }}@kubernetescrd
+{{- end }}
+{{- if .service.additionalAnnotations }}
+{{ toYaml .service.additionalAnnotations | indent 4 }}
+{{- end }}
+{{- end }}
+spec:
+  ports:
+{{- range .service.ports }}
+  - name: {{ .name }}
+    port: {{ .number }}
+    protocol: TCP
+{{- end }}
+  clusterIP: None
+  type: ClusterIP
+{{- end }}

@@ -1,0 +1,11 @@
+{{- range .Values.services }}
+{{- if .serverstransport }}
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: ServersTransport
+metadata:
+  name: {{ .name }}
+spec:
+{{ toYaml .serverstransport | indent 2 }}
+{{- end }}
+{{- end }}
