@@ -45,6 +45,13 @@ entries:
     version: 1.0.0
   grafana-agent:
   - apiVersion: v2
+    created: "2023-08-17T15:10:40.129250841Z"
+    digest: 825f3817082bbe31fc2c3876251dac0e8bd247d609c78480e2b1e641212efc29
+    name: grafana-agent
+    urls:
+    - https://github.com/pajos-us/helm-charts/releases/download/grafana-agent-1.0.3/grafana-agent-1.0.3.tgz
+    version: 1.0.3
+  - apiVersion: v2
     created: "2023-08-01T16:09:05.529149682Z"
     dependencies:
     - name: kube-state-metrics
