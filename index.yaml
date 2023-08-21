@@ -22,6 +22,13 @@ entries:
     version: 1.0.0
   dynuwebhook:
   - apiVersion: v2
+    created: "2023-08-21T18:15:58.032553588Z"
+    digest: 08d7d87484bcdd6c1aea8a958be32c17c38ac887cb2d74090a197989d30f6746
+    name: dynuwebhook
+    urls:
+    - https://github.com/pajos-us/helm-charts/releases/download/dynuwebhook-1.0.1/dynuwebhook-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
     created: "2023-08-01T18:51:48.242892624Z"
     digest: cdb19116af980352804de7352a7703ab7efe39a64ce126f928d411afc9ca5d23
     name: dynuwebhook
