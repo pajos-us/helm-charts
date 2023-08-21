@@ -100,10 +100,8 @@ rules:
       - ""
     resources:
       - "secrets"
-    {{- with .Values.secretName }}
-    resourceNames:
-    {{ toYaml . | indent 4 }}
-    {{- end }}
+    resourceNames: 
+    - dynu-secret
     verbs:
       - "get"
       - "watch"
