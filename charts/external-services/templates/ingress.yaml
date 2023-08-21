@@ -1,4 +1,5 @@
 {{- range .Values.services }}
+{{- if .ingress.enabled }}
 ---
 {{- $svcname := .name -}}
 apiVersion: networking.k8s.io/v1
@@ -18,5 +19,6 @@ spec:
               number: {{ .number }}
         path: /
         pathType: ImplementationSpecific
+{{- end }}
 {{- end }}
 {{- end }}
