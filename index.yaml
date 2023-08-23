@@ -201,6 +201,17 @@ entries:
     version: 1.0.0
   nextcloud:
   - apiVersion: v2
+    created: "2023-08-23T18:53:10.426992546Z"
+    dependencies:
+    - name: nextcloud
+      repository: https://nextcloud.github.io/helm
+      version: 4.1.0
+    digest: 9160a5351e13d03799bea71ed04b65240abff0ef8b7e15eaf7777c8526eb5aab
+    name: nextcloud
+    urls:
+    - https://github.com/pajos-us/helm-charts/releases/download/nextcloud-1.0.1/nextcloud-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
     created: "2023-08-02T20:38:24.382836319Z"
     dependencies:
     - name: nextcloud
