@@ -24,6 +24,9 @@ spec:
             - /bin/sh
           args:
             - ./start-server.sh
+          env:
+            - name: IMMICH_CONFIG_FILE
+              value: /usr/src/app/config.json
           envFrom:
             - secretRef:
                 name: immich
@@ -36,6 +39,9 @@ spec:
           volumeMounts:
             - name: library
               mountPath: /usr/src/app/upload
+            - name: config
+              mountPath: /usr/src/app/config.json
+              subPath: config.json
           livenessProbe:
             failureThreshold: 5
             httpGet:
@@ -61,3 +67,6 @@ spec:
         - name: library
           persistentVolumeClaim:
             claimName: immich-library
+        - name: config
+          secret:
+            secretName: immich-config
