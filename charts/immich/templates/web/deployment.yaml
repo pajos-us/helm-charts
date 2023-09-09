@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: immich-web
 spec:
-  replicas: 1
+  replicas: {{ .Values.web.replicas }}
   strategy:
     type: Recreate
   selector:
@@ -16,6 +16,16 @@ spec:
         app.kubernetes.io/name: immich-web
         app.kubernetes.io/instance: immich
     spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app.kubernetes.io/name
+                operator: In
+                values:
+                - immich-web
+            topologyKey: "kubernetes.io/hostname"
       containers:
         - name: immich-immich-web
           image: "altran1502/immich-web:{{ .Values.image.tag }}"

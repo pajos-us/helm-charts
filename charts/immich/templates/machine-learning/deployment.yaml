@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: immich-machine-learning
 spec:
-  replicas: 1
+  replicas: {{ .Values.machinelearning.replicas }}
   strategy:
     type: Recreate
   selector:
@@ -16,6 +16,16 @@ spec:
         app.kubernetes.io/name: immich-machine-learning
         app.kubernetes.io/instance: immich
     spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app.kubernetes.io/name
+                operator: In
+                values:
+                - immich-machine-learning
+            topologyKey: "kubernetes.io/hostname"
       containers:
         - name: immich-immich-machine-learning
           image: "altran1502/immich-machine-learning:{{ .Values.image.tag }}"

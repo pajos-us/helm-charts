@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: immich-typesense
 spec:
-  replicas: 1
+  replicas: {{ .Values.typesense.replicas }}
   strategy:
     type: Recreate
   selector:
@@ -16,6 +16,16 @@ spec:
         app.kubernetes.io/name: immich-typesense
         app.kubernetes.io/instance: immich
     spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app.kubernetes.io/name
+                operator: In
+                values:
+                - immich-typesense
+            topologyKey: "kubernetes.io/hostname"
       containers:
         - name: immich-typesense
           image: "typesense/typesense:{{ .Values.typesense.image.tag }}"
