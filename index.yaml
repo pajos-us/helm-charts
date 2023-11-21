@@ -109,6 +109,14 @@ entries:
     version: 1.0.0
   immich:
   - apiVersion: v2
+    created: "2023-11-21T03:57:19.885628821Z"
+    description: A chart to power Immich (immich.app) running on kubernetes
+    digest: 016235527035c4945f181e80309d04c9a5522aa8d5210eafa6f92e921c1adf87
+    name: immich
+    urls:
+    - https://github.com/pajos-us/helm-charts/releases/download/immich-1.1.0/immich-1.1.0.tgz
+    version: 1.1.0
+  - apiVersion: v2
     created: "2023-09-09T07:56:11.764215815Z"
     description: A chart to power Immich (immich.app) running on kubernetes
     digest: 6d89e11e21aab4001284d556513d86275dca0ea8daf130a79c0c22eb23013fc8
