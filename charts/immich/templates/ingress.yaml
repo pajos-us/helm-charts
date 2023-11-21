@@ -2,8 +2,6 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: immich
-  annotations:
-      traefik.ingress.kubernetes.io/router.middlewares: immich-immich@kubernetescrd
 spec:
   rules:
   - host: {{ .Values.ingress.host }}
