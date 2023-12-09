@@ -7,7 +7,6 @@ data:
   NODE_ENV: "production"
   DISABLE_REVERSE_GEOCODING: "true"
   IMMICH_MACHINE_LEARNING_URL: "http://immich-machine-learning:3003"
-  TYPESENSE_ENABLED: "true"
   DB_DATABASE_NAME: "{{ .Values.db.name }}"
   DB_HOSTNAME: "{{ .Values.db.host }}"
   DB_USERNAME: "{{ .Values.db.username }}"
