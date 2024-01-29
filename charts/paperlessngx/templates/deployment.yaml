@@ -10,7 +10,7 @@ spec:
     matchLabels:
       app.kubernetes.io/instance: {{ .Release.Name }}
   strategy:
-    type: RollingUpdate
+    type: Restart
   template:
     metadata:
       labels:
