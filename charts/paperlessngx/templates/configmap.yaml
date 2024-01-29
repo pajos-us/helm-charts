@@ -4,7 +4,7 @@ metadata:
   name: {{ .Release.Name }}
 data:
   PAPERLESS_ADMIN_MAIL: "su.homeserver@gmail.com"
-  PAPERLESS_ADMIN_USER: "admin"
+  PAPERLESS_ADMIN_USER: "{{ .Values.admin.user }}"
   PAPERLESS_DATA_DIR: "/data"
   PAPERLESS_DBHOST: "postgres.db"
   PAPERLESS_DBNAME: "paperlessngx"
