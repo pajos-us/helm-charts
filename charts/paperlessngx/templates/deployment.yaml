@@ -72,7 +72,7 @@ spec:
         - name: OAUTH2_PROXY_EMAIL_DOMAIN
           value: "*"
         - name: OAUTH2_PROXY_COOKIE_SECRET
-          value: "vault:secret/data/k8s/shared/root#password"
+          value: "vault:secret/data/k8s/paperlessngx/paperlessngx#cookie-secret"
       - envFrom:
         - configMapRef:
             name: {{ .Release.Name }}
