@@ -74,6 +74,13 @@ spec:
             name: {{ .Release.Name }}
         - secretRef:
             name: {{ .Release.Name }}
+        env:
+        - name: PAPERLESS_ADMIN_PASSWORD
+          value: "vault:secret/data/k8s/shared/root#password"
+        - name: PAPERLESS_DBPASS
+          value: "vault:secret/data/k8s/paperlessngx/paperlessngx#db-password"
+        - name: PAPERLESS_SECRET_KEY
+          value: "vault:secret/data/k8s/shared/root#password"
         image: paperlessngx/paperless-ngx:2.4.3
         imagePullPolicy: IfNotPresent
         livenessProbe:
