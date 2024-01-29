@@ -60,6 +60,8 @@ spec:
         - name: OAUTH2_PROXY_VALIDATE_URL
           value: "https://sso.pajos.us/application/o/userinfo/"
         - name: OAUTH2_PROXY_PROVIDER
+          value: "oidc"
+        - name: OAUTH2_PROXY_PROVIDER_DISPLAY_NAME
           value: "authentik"
         - name: OAUTH2_PROXY_REDIS_CONNECTION_URL
           value: "redis://redis-master.redis:6379"
