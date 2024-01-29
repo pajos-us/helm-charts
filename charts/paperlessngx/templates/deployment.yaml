@@ -72,8 +72,6 @@ spec:
       - envFrom:
         - configMapRef:
             name: {{ .Release.Name }}
-        - secretRef:
-            name: {{ .Release.Name }}
         env:
         - name: PAPERLESS_ADMIN_PASSWORD
           value: "vault:secret/data/k8s/shared/root#password"
