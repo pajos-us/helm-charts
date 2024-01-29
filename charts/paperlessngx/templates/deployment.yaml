@@ -69,6 +69,10 @@ spec:
           value: "true"
         - name: OAUTH2_PROXY_UPSTREAM
           value: "http://localhost:8000"
+        - name: OAUTH2_PROXY_EMAIL_DOMAIN
+          value: "*"
+        - name: OAUTH2_PROXY_COOKIE_SECRET
+          value: "vault:secret/data/k8s/shared/root#password"
       - envFrom:
         - configMapRef:
             name: {{ .Release.Name }}
