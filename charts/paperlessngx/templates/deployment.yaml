@@ -52,7 +52,7 @@ spec:
         - name: OAUTH2_PROXY_HTTP_ADDRESS
           value: "0.0.0.0:4180"
         - name: OAUTH2_PROXY_OIDC_ISSUER_URL
-          value: "https://sso.pajos.us/application/o/paperlessngx/.well-known/openid-configuration"
+          value: {{ .Values.oidc_issuer_url }}
         - name: OAUTH2_PROXY_PROVIDER
           value: "oidc"
         - name: OAUTH2_PROXY_PROVIDER_DISPLAY_NAME
