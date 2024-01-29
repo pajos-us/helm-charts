@@ -51,14 +51,8 @@ spec:
           value: "vault:secret/data/k8s/paperlessngx/paperlessngx#client-secret"
         - name: OAUTH2_PROXY_HTTP_ADDRESS
           value: "0.0.0.0:4180"
-        - name: OAUTH2_PROXY_LOGIN_URL
-          value: "https://sso.pajos.us/application/o/authorize/"
-        - name: OAUTH2_PROXY_REDEEM_URL
-          value: "https://sso.pajos.us/application/o/token/"
-        - name: OAUTH2_PROXY_PROFILE_URL
-          value: "https://sso.pajos.us/application/o/userinfo/"
-        - name: OAUTH2_PROXY_VALIDATE_URL
-          value: "https://sso.pajos.us/application/o/userinfo/"
+        - name: OAUTH2_PROXY_ISSUER_URL
+          value: "https://sso.pajos.us/application/o/paperlessngx/.well-known/openid-configuration"
         - name: OAUTH2_PROXY_PROVIDER
           value: "oidc"
         - name: OAUTH2_PROXY_PROVIDER_DISPLAY_NAME
