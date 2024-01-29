@@ -72,6 +72,8 @@ spec:
       - envFrom:
         - configMapRef:
             name: {{ .Release.Name }}
+        - secretRef:
+            name: {{ .Release.Name }}
         image: paperlessngx/paperless-ngx:2.4.3
         imagePullPolicy: IfNotPresent
         livenessProbe:
@@ -104,6 +106,7 @@ spec:
           name: data
         - mountPath: /media
           name: media
+      serviceAccountName: {{ .Release.Name }}
       volumes:
       - name: data
         persistentVolumeClaim:
