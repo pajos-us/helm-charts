@@ -65,7 +65,7 @@ spec:
           value: "true"
         - name: OAUTH2_PROXY_SKIP_PROVIDER_BUTTON
           value: "true"
-        - name: OAUTH2_PROXY_UPSTREAM
+        - name: OAUTH2_PROXY_UPSTREAMS
           value: "http://localhost:8000"
         - name: OAUTH2_PROXY_EMAIL_DOMAINS
           value: "*"
