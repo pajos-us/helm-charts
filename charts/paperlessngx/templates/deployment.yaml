@@ -71,6 +71,8 @@ spec:
           value: "*"
         - name: OAUTH2_PROXY_COOKIE_SECRET
           value: "vault:secret/data/k8s/paperlessngx/paperlessngx#cookie-secret"
+        - name: OAUTH2_PROXY_PREFER_EMAIL_TO_USER
+          value: "true"
       - envFrom:
         - configMapRef:
             name: {{ .Release.Name }}
