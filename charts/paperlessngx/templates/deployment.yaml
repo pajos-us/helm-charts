@@ -60,7 +60,7 @@ spec:
         - name: OAUTH2_PROXY_PROVIDER_DISPLAY_NAME
           value: {{ .Values.oidc.display_name }}
         - name: OAUTH2_PROXY_REDIS_CONNECTION_URL
-          value: "https://{{ .Values.redis_url }}"
+          value: {{ .Values.redis_url }}
         - name: OAUTH2_PROXY_REVERSE_PROXY
           value: "true"
         - name: OAUTH2_PROXY_SKIP_PROVIDER_BUTTON
