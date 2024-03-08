@@ -46,21 +46,21 @@ spec:
           timeoutSeconds: 3
         env:
         - name: OAUTH2_PROXY_CLIENT_ID
-          value: "vault:secret/data/k8s/paperlessngx/paperlessngx#client-id"
+          value: {{ .Values.oidc.client_id }}
         - name: OAUTH2_PROXY_CLIENT_SECRET
-          value: "vault:secret/data/k8s/paperlessngx/paperlessngx#client-secret"
+          value: {{ .Values.oidc.client_secret }}
         - name: OAUTH2_PROXY_HTTP_ADDRESS
           value: "0.0.0.0:4180"
         - name: OAUTH2_PROXY_OIDC_ISSUER_URL
-          value: {{ .Values.oidc_issuer_url }}
+          value: {{ .Values.oidc.issuer_url }}
         - name: OAUTH2_PROXY_CODE_CHALLENGE_METHOD
           value: "S256"
         - name: OAUTH2_PROXY_PROVIDER
           value: "oidc"
         - name: OAUTH2_PROXY_PROVIDER_DISPLAY_NAME
-          value: "authentik"
+          value: {{ .Values.oidc.display_name }}
         - name: OAUTH2_PROXY_REDIS_CONNECTION_URL
-          value: "redis://redis-master.redis:6379"
+          value: "https://{{ .Values.redis_url }}"
         - name: OAUTH2_PROXY_REVERSE_PROXY
           value: "true"
         - name: OAUTH2_PROXY_SKIP_PROVIDER_BUTTON
@@ -70,7 +70,7 @@ spec:
         - name: OAUTH2_PROXY_EMAIL_DOMAINS
           value: "*"
         - name: OAUTH2_PROXY_COOKIE_SECRET
-          value: "vault:secret/data/k8s/paperlessngx/paperlessngx#cookie-secret"
+          value: {{ .Values.oidc.cookie_secret }}
         - name: OAUTH2_PROXY_PREFER_EMAIL_TO_USER
           value: "true"
       - envFrom:
@@ -78,11 +78,11 @@ spec:
             name: {{ .Release.Name }}
         env:
         - name: PAPERLESS_ADMIN_PASSWORD
-          value: "vault:secret/data/k8s/shared/root#password"
+          value: {{ .Values.admin.password }}
         - name: PAPERLESS_DBPASS
-          value: "vault:secret/data/k8s/paperlessngx/paperlessngx#db-password"
+          value: {{ .Values.db.password }}
         - name: PAPERLESS_SECRET_KEY
-          value: "vault:secret/data/k8s/shared/root#password"
+          value: {{ .Values.secret_key }}
         image: paperlessngx/paperless-ngx:2.4.3
         imagePullPolicy: IfNotPresent
         livenessProbe:

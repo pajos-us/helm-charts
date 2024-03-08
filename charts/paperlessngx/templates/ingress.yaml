@@ -4,7 +4,7 @@ metadata:
   name: {{ .Release.Name }}
 spec:
   rules:
-    - host: "docs.pajos.us"
+    - host: "{{ .Values.domain }}"
       http:
         paths:
           - path: "/"
