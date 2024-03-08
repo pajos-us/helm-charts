@@ -287,6 +287,14 @@ entries:
     version: 1.0.0
   paperlessngx:
   - apiVersion: v2
+    created: "2024-03-08T04:11:52.28209943Z"
+    description: A chart for paperless-ngx
+    digest: bdb1ce8c0b1c35e8ec04c22f7406ee65b1f07f91f6bcb80c55454b31d55dfd0a
+    name: paperlessngx
+    urls:
+    - https://github.com/pajos-us/helm-charts/releases/download/paperlessngx-1.1.0/paperlessngx-1.1.0.tgz
+    version: 1.1.0
+  - apiVersion: v2
     created: "2024-01-29T00:10:39.099606341Z"
     description: A chart for paperless-ngx
     digest: 6896966deadd1ff2cfbfe3ccfec1dd6454098c48244362aa73ca01524c1ff1c9
