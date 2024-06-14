@@ -30,10 +30,6 @@ spec:
         - name: immich-immich-server
           image: "altran1502/immich-server:{{ .Values.image.tag }}"
           imagePullPolicy: IfNotPresent
-          command:
-            - /bin/sh
-          args:
-            - ./start-server.sh
           env:
             - name: IMMICH_CONFIG_FILE
               value: /usr/src/app/config.json
