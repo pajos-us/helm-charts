@@ -35,3 +35,7 @@ firefly-iii-stack:
       env:
         IGNORE_DUPLICATE_ERRORS: "false"
         TZ: "America/Phoenix"
+
+pg:
+  uid: 26
+  gid: 26
