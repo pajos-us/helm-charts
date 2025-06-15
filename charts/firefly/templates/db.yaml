@@ -4,9 +4,7 @@ metadata:
   name: firefly-db
 spec:
   instances: 1
-  postgresUID: 1000
-  postgresGID: 1000
-  imageName: postgres:13-alpine3.22
+  imageName: ghcr.io/cloudnative-pg/postgresql:15.6
   storage:
     size: 1Gi
     storageClass: pinas-nfs-client
