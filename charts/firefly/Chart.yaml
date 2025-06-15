@@ -1,0 +1,7 @@
+apiVersion: v2
+name: firefly
+version: 1.0.0
+dependencies:
+  - name: firefly-iii-stack
+    repository: https://firefly-iii.github.io/kubernetes/
+    version: 0.8.2

@@ -1,0 +1,37 @@
+firefly-iii-stack:
+  firefly-db:
+    enabled: false
+  firefly-iii:
+    persistence:
+      storageClassName: pinas-nfs-client
+    config:
+      env:
+        DB_HOST: "firefly-db"
+        DB_CONNECTION: pgsql
+        DB_PORT: "5432"
+        DB_DATABASE: app
+        DB_USERNAME: app
+        TZ: "America/Phoenix"
+        TRUSTED_PROXIES: "**"
+    secrets:
+      env:
+        APP_PASSWORD: "firefly"
+        DB_PASSWORD: "firefly"
+        FIREFLY_III_ACCESS_TOKEN: "firefly"
+    cronjob:
+      enabled: true
+      auth:
+        token: "firefly"
+    ingress:
+      enabled: true
+      hosts:
+      - budget.pajos.us
+  importer:
+    fireflyiii:
+      vanityUrl: "https://budget.pajos.us"
+      auth:
+        accessToken: "firefly"
+    config:
+      env:
+        IGNORE_DUPLICATE_ERRORS: "false"
+        TZ: "America/Phoenix"
