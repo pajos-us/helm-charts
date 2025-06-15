@@ -59,6 +59,17 @@ entries:
     version: 1.0.0
   firefly:
   - apiVersion: v2
+    created: "2025-06-15T05:08:54.054398165Z"
+    dependencies:
+    - name: firefly-iii-stack
+      repository: https://firefly-iii.github.io/kubernetes/
+      version: 0.8.2
+    digest: f44872aa782c68f5da0061cb3c7ea74f80fa82ef0f077034dc2da7a31fbd95fe
+    name: firefly
+    urls:
+    - https://github.com/pajos-us/helm-charts/releases/download/firefly-1.0.2/firefly-1.0.2.tgz
+    version: 1.0.2
+  - apiVersion: v2
     created: "2025-06-15T05:05:58.679440445Z"
     dependencies:
     - name: firefly-iii-stack
