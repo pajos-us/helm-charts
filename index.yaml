@@ -57,6 +57,18 @@ entries:
     urls:
     - https://github.com/pajos-us/helm-charts/releases/download/external-services-1.0.0/external-services-1.0.0.tgz
     version: 1.0.0
+  firefly:
+  - apiVersion: v2
+    created: "2025-06-15T05:01:53.740290253Z"
+    dependencies:
+    - name: firefly-iii-stack
+      repository: https://firefly-iii.github.io/kubernetes/
+      version: 0.8.2
+    digest: 1d073ad0435cafe9126be0758e5d4c19c43cdfd4a0df9e8888ba1b9f3f9a8cd9
+    name: firefly
+    urls:
+    - https://github.com/pajos-us/helm-charts/releases/download/firefly-1.0.0/firefly-1.0.0.tgz
+    version: 1.0.0
   grafana-agent:
   - apiVersion: v2
     created: "2023-08-17T15:10:40.129250841Z"
