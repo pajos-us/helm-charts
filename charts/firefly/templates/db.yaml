@@ -4,7 +4,7 @@ metadata:
   name: firefly-db
 spec:
   instances: 1
-  imageName: postgres:10-alpine3.16
+  imageName: postgres:13-alpine3.22
   storage:
     size: 1Gi
     storageClass: pinas-nfs-client
