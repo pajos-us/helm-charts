@@ -4,24 +4,22 @@ firefly-iii-stack:
   firefly-iii:
     persistence:
       storageClassName: pinas-nfs-client
+    extraVolumes:
+    - name: db
+      persistentVolumeClaim:
+        claimName: firefly-db
+    extraVolumeMounts:
+    - mountPath: /var/www/html/storage/database
+      name: db
     config:
       env:
-        DB_HOST: "firefly-db-rw"
-        DB_CONNECTION: pgsql
-        DB_PORT: "5432"
-        DB_DATABASE: app
-        DB_USERNAME: app
+        DEFAULT_LANGUAGE: "en_US"
+        DEFAULT_LOCALE: "equal"
         TZ: "America/Phoenix"
         TRUSTED_PROXIES: "**"
-    secrets:
-      env:
-        APP_PASSWORD: "firefly"
-        DB_PASSWORD: "firefly"
-        FIREFLY_III_ACCESS_TOKEN: "firefly"
+        DB_CONNECTION: "sqlite"
     cronjob:
       enabled: true
-      auth:
-        token: "firefly"
     ingress:
       enabled: true
       hosts:
@@ -29,13 +27,7 @@ firefly-iii-stack:
   importer:
     fireflyiii:
       vanityUrl: "https://budget.pajos.us"
-      auth:
-        accessToken: "firefly"
     config:
       env:
         IGNORE_DUPLICATE_ERRORS: "false"
         TZ: "America/Phoenix"
-
-pg:
-  uid: 26
-  gid: 26
