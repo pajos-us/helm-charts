@@ -1,0 +1,17 @@
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: api-docs
+spec:
+  replacePathRegex:
+    regex: ^/api/docs/(.*)
+    replacement: /api-docs/$1
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: api-v1
+spec:
+  replacePathRegex:
+    regex: ^/api/v1/(.*)
+    replacement: /v1/$1
