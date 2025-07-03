@@ -4,10 +4,10 @@ metadata:
   name: actualbudget-api
 spec:
   ports:
-    - name: http
+    - name: api
       port: 5007
       protocol: TCP
-      targetPort: http
+      targetPort: api
   selector:
     app.kubernetes.io/instance: actualbudget
     app.kubernetes.io/name: actualbudget

@@ -16,15 +16,15 @@ actualbudget:
     livenessProbe:
       httpGet:
         path: /api-docs
-        port: http
+        port: api
     ports:
       - containerPort: 5007
-        name: http
+        name: api
         protocol: TCP
     readinessProbe:
       httpGet:
         path: /api-docs
-        port: http
+        port: api
     env:
     - name: ACTUAL_SERVER_URL
       value: http://localhost:5006
