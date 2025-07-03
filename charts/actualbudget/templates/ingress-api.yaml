@@ -2,6 +2,8 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: actualbudget-api
+  annotations:
+    traefik.ingress.kubernetes.io/router.middlewares: actualbudget-api-docs@kubernetescrd,actualbudget-api-v1@kubernetescrd
 spec:
   rules:
     - host: budget.pajos.us
@@ -12,5 +14,5 @@ spec:
                 name: actualbudget-api
                 port:
                   number: 5007
-            path: /api-docs
+            path: /api
             pathType: Prefix
