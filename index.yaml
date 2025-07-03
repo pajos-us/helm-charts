@@ -2,6 +2,17 @@ apiVersion: v1
 entries:
   actualbudget:
   - apiVersion: v2
+    created: "2025-07-03T18:59:31.722740799Z"
+    dependencies:
+    - name: actualbudget
+      repository: https://community-charts.github.io/helm-charts
+      version: 1.7.1
+    digest: 4c2d65b349c46613b015878fbcc730190eee248cbfac61c6158aff3f95f4212a
+    name: actualbudget
+    urls:
+    - https://github.com/pajos-us/helm-charts/releases/download/actualbudget-1.0.1/actualbudget-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
     created: "2025-07-03T18:18:22.674515298Z"
     dependencies:
     - name: actualbudget
