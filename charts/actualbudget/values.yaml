@@ -13,6 +13,18 @@ actualbudget:
   extraContainers:
   - name: api
     image: jhonderson/actual-http-api:latest
+    livenessProbe:
+      httpGet:
+        path: /api-docs
+        port: http
+    ports:
+      - containerPort: 5007
+        name: http
+        protocol: TCP
+    readinessProbe:
+      httpGet:
+        path: /api-docs
+        port: http
     env:
     - name: ACTUAL_SERVER_URL
       value: http://localhost:5006
