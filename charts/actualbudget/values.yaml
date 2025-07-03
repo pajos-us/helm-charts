@@ -1,0 +1,25 @@
+actualbudget:
+  login:
+    allowedLoginMethods: ["password"]
+  ingress:
+    enabled: true
+    hosts:
+    - host: budget.pajos.us
+      paths:
+      - path: /
+        pathType: Prefix
+  persistence:
+    enabled: true
+  extraContainers:
+  - name: api
+    image: jhonderson/actual-http-api:latest
+    env:
+    - name: ACTUAL_SERVER_URL
+      value: http://localhost:5006
+    - name: ACTUAL_SERVER_PASSWORD
+      value: Hossman11*
+    - name: API_KEY
+      value: actual
+    volumeMounts:
+    - name: data
+      mountPath: /usr/src/app/data

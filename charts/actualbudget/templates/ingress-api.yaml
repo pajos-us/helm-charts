@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: actualbudget-api
+spec:
+  rules:
+    - host: budget.pajos.us
+      http:
+        paths:
+          - backend:
+              service:
+                name: actualbudget-api
+                port:
+                  number: 5007
+            path: /api-docs
+            pathType: Prefix

@@ -1,0 +1,7 @@
+apiVersion: v2
+name: actualbudget
+version: 1.0.0
+dependencies:
+  - name: actualbudget
+    repository: https://community-charts.github.io/helm-charts
+    version: 1.7.1
