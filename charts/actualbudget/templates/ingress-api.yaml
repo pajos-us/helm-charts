@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: actualbudget-api
   annotations:
-    traefik.ingress.kubernetes.io/router.middlewares: actualbudget-api-docs@kubernetescrd,actualbudget-api-v1@kubernetescrd
+    traefik.ingress.kubernetes.io/router.middlewares: {{ .Release.Namespace }}-api-docs@kubernetescrd,{{ .Release.Namespace }}-api-v1@kubernetescrd
 spec:
   rules:
     - host: budget.pajos.us
